@@ -234,8 +234,10 @@ h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1.05;margin:0;
 @keyframes halo{50%{inset:-22px;opacity:.4}}
 .about-mark::before{opacity:1;padding:3px;animation-duration:5s;filter:drop-shadow(0 0 10px rgba(18,181,255,.8))}
 .about h2{font-size:clamp(28px,4.4vw,58px)}
-.about .who{font-size:clamp(17px,1.5vw,20px);max-width:54ch;margin:20px 0 12px;line-height:1.55}
-.about .who2{color:var(--soft);max-width:56ch;margin:0 0 28px}
+.about .who{font-size:clamp(17px,1.5vw,20px);max-width:620px;margin:20px 0 14px;line-height:1.6}
+.about .who2{color:var(--soft);max-width:620px;margin:0 0 28px;line-height:1.65}
+.about .who,.about .who2{text-align:justify;hyphens:none;-webkit-hyphens:none}
+@media (max-width:640px){.about .who{font-size:16px;line-height:1.6}.about .who2{font-size:15px}main p:not(.mono):not(.form-err),main .desc,.about .who,.about .who2,.t-card q{hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3}}
 .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .stat{border-radius:18px;padding:18px 16px;background:var(--bg-2)}
 .stat b{display:block;font-family:var(--f-display);font-weight:800;font-size:clamp(22px,2.8vw,36px);line-height:1;font-variant-numeric:tabular-nums;margin-bottom:6px}
@@ -493,7 +495,7 @@ footer a:hover{color:#fff}
 .wa-float svg{width:30px;height:30px;fill:#fff}
 
 /* textos justificados en toda la página */
-main p:not(.mono):not(.form-err),main .desc,main li,.t-text,.foot p,.t-card q,.learning > span:last-child{text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto}
+main p:not(.mono):not(.form-err),main .desc,main li,.t-text,.foot p,.t-card q,.learning > span:last-child{text-align:justify;text-justify:inter-word;hyphens:manual;-webkit-hyphens:manual}
 main section.outro p:not(.mono),.empty,.ld-txt,.form-note,.q-top,.tile *,.dock *,.stat *,.sc-body *,.card *,.chat *,.bubble,.svc-card *,.opt,.q-opt,.bsteps li{text-align:inherit}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
@@ -569,7 +571,7 @@ main section.outro p:not(.mono),.empty,.ld-txt,.form-note,.q-top,.tile *,.dock *
       <div>
         <p class="kicker">Quién está detrás de CoreFlow IA</p>
         <h2 class="split grad">Hola, soy <span class="hl">Jhon España</span></h2>
-        <p class="who">Hace unos tres años me enamoré de la inteligencia artificial y desde entonces no he parado de aprender. Empecé probando herramientas por curiosidad, y esa curiosidad hoy tiene nombre: <b>CoreFlow IA</b>, una agencia de inteligencia artificial pensada para pequeños emprendedores que quieren impulsar su negocio, vender más y trabajar menos.</p>
+        <p class="who">Hace unos tres años empecé desde cero en el mundo de la inteligencia artificial. Desde entonces he aprendido muchísimo, sigo aprendiendo cada día y sé que todavía me queda mucho camino por recorrer. Lo que comenzó como curiosidad hoy tiene nombre: <b>CoreFlow IA</b>, mi agencia de inteligencia artificial para pequeños emprendedores que quieren impulsar su negocio, vender más y trabajar menos.</p>
         <p class="who2">Antes de esto ya ayudaba a negocios venezolanos a verse como grandes marcas desde Tu Etiqueta Tu Montaje. Ahora uno ese ojo de diseño con todo lo que la IA hace posible, y me encargo de cada proyecto de principio a fin. Esta página que estás recorriendo también la hice yo.</p>
         <p class="skills-h">Lo que sé hacer</p>
         <div class="skills">
