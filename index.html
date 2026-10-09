@@ -306,7 +306,9 @@ h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1.05;margin:0;
   .chapter:not(.open) .desc,.chapter:not(.open) ul{display:none}
   .more{display:inline-flex}
   .ch-actions .btn{padding:12px 16px;font-size:14px}
-  .ch-actions [data-filter]{display:none}
+  .ch-actions{gap:8px}
+  .ch-actions .btn:first-child{flex:1 1 100%;justify-content:center}
+  .ch-actions .btn.ghost{flex:1 1 0;justify-content:center}
 }
 
 /* ---------- diagnóstico ---------- */
@@ -490,6 +492,9 @@ footer a:hover{color:#fff}
 .wa-float:hover{transform:scale(1.07)}
 .wa-float svg{width:30px;height:30px;fill:#fff}
 
+/* textos justificados en toda la página */
+main p:not(.mono):not(.form-err),main .desc,main li,.t-text,.foot p,.t-card q,.learning > span:last-child{text-align:justify;text-justify:inter-word;hyphens:auto;-webkit-hyphens:auto}
+main section.outro p:not(.mono),.empty,.ld-txt,.form-note,.q-top,.tile *,.dock *,.stat *,.sc-body *,.card *,.chat *,.bubble,.svc-card *,.opt,.q-opt,.bsteps li{text-align:inherit}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
   .js .chapter:not(.seen) .copy>*{opacity:1;transform:none}
