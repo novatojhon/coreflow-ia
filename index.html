@@ -238,6 +238,32 @@ h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1.05;margin:0;
 .about .who2{color:var(--soft);max-width:620px;margin:0 0 28px;line-height:1.65}
 .about .who,.about .who2{text-align:justify;hyphens:none;-webkit-hyphens:none}
 @media (max-width:640px){.about .who{font-size:16px;line-height:1.6}.about .who2{font-size:15px}main p:not(.mono):not(.form-err),main .desc,.about .who,.about .who2,.t-card q{hyphens:auto;-webkit-hyphens:auto;hyphenate-limit-chars:7 3 3}}
+/* ---------- mi camino (línea de tiempo) ---------- */
+.journey-h{margin:4px 0 14px}
+.journey{list-style:none;margin:0 0 30px;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;position:relative;counter-reset:j}
+.journey::before,.journey::after{content:"";position:absolute;left:calc(16.66% - 4px);right:calc(16.66% - 4px);top:21px;height:2px;border-radius:2px;background:var(--line)}
+.journey::after{background:var(--neon-static);box-shadow:0 0 12px rgba(18,181,255,.7);transform:scaleX(0);transform-origin:left;transition:transform 1.6s cubic-bezier(.2,.7,.2,1)}
+.journey.on::after{transform:scaleX(1)}
+.jstep{position:relative;text-align:center;padding:0 4px;opacity:0;transform:translateY(14px);transition:opacity .6s,transform .6s}
+.journey.on .jstep{opacity:1;transform:none}
+.journey.on .jstep:nth-child(2){transition-delay:.5s}.journey.on .jstep:nth-child(3){transition-delay:1s}
+.jdot{position:relative;z-index:1;width:44px;height:44px;margin:0 auto 12px;border-radius:50%;display:grid;place-items:center;background:var(--bg-2);border:2px solid rgba(124,203,255,.35);color:var(--cyan);font-family:var(--f-display);font-weight:800;font-size:15px}
+.jstep.now .jdot{background:var(--neon-static);border-color:transparent;color:#fff;box-shadow:0 0 0 5px rgba(18,181,255,.12),0 0 26px rgba(18,181,255,.8);animation:jpulse 2.4s ease-in-out infinite}
+@keyframes jpulse{50%{box-shadow:0 0 0 9px rgba(18,181,255,.06),0 0 34px rgba(138,63,252,.9)}}
+.jstep small{display:block;font-family:var(--f-mono,monospace);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:4px}
+.jstep b{display:block;font-family:var(--f-display);font-size:clamp(14px,1.25vw,17px);line-height:1.2;margin-bottom:6px}
+.jstep.now b{background:linear-gradient(90deg,var(--cyan),var(--violet));-webkit-background-clip:text;background-clip:text;color:transparent}
+.jstep span{display:block;font-size:13.5px;line-height:1.45;color:var(--soft)}
+@media (max-width:640px){
+  .journey{grid-template-columns:1fr;gap:18px}
+  .journey::before,.journey::after{display:none}
+  .jstep:not(:last-child)::after{content:"";position:absolute;left:21px;top:44px;bottom:-18px;width:2px;border-radius:2px;background:var(--neon-static);box-shadow:0 0 10px rgba(18,181,255,.6);transform:scaleY(0);transform-origin:top;transition:transform .6s .3s}
+  .journey.on .jstep::after{transform:scaleY(1)}
+  .jstep{display:grid;grid-template-columns:44px 1fr;column-gap:14px;text-align:left;padding:0}
+  .jdot{grid-row:1/4;margin:0}
+  .jstep span{text-align:justify}
+}
+@media (prefers-reduced-motion:reduce){.journey::after{transform:none!important}.jstep{opacity:1;transform:none}}
 .stats{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
 .stat{border-radius:18px;padding:18px 16px;background:var(--bg-2)}
 .stat b{display:block;font-family:var(--f-display);font-weight:800;font-size:clamp(22px,2.8vw,36px);line-height:1;font-variant-numeric:tabular-nums;margin-bottom:6px}
@@ -573,6 +599,12 @@ main section.outro p:not(.mono),.empty,.ld-txt,.form-note,.q-top,.tile *,.dock *
         <h2 class="split grad">Hola, soy <span class="hl">Jhon España</span></h2>
         <p class="who">Hace unos tres años empecé desde cero en el mundo de la inteligencia artificial. Desde entonces he aprendido muchísimo, sigo aprendiendo cada día y sé que todavía me queda mucho camino por recorrer. Lo que comenzó como curiosidad hoy tiene nombre: <b>CoreFlow IA</b>, mi agencia de inteligencia artificial para pequeños emprendedores que quieren impulsar su negocio, vender más y trabajar menos.</p>
         <p class="who2">Antes de esto ya ayudaba a negocios venezolanos a verse como grandes marcas desde Tu Etiqueta Tu Montaje. Ahora uno ese ojo de diseño con todo lo que la IA hace posible, y me encargo de cada proyecto de principio a fin. Esta página que estás recorriendo también la hice yo.</p>
+        <p class="skills-h journey-h">Mi camino</p>
+        <ol class="journey" id="journey">
+          <li class="jstep"><div class="jdot">1</div><small>Mis comienzos</small><b>Tarjetas y videos de felicitación</b><span>Aquí aprendí a contar historias con diseño y video.</span></li>
+          <li class="jstep"><div class="jdot">2</div><small>El crecimiento</small><b>Tu Etiqueta Tu Montaje</b><span>Ayudé a negocios venezolanos a verse como grandes marcas.</span></li>
+          <li class="jstep now"><div class="jdot">3</div><small>Hoy</small><b>CoreFlow IA</b><span>Uno diseño, video e inteligencia artificial para impulsar tu negocio.</span></li>
+        </ol>
         <p class="skills-h">Lo que sé hacer</p>
         <div class="skills">
           <span class="skill nb">Videos con IA</span><span class="skill nb">Imágenes con IA</span><span class="skill nb">Avatares que promocionan productos</span>
@@ -1346,6 +1378,12 @@ if (fine && !reduce) {
   if (intro.readyState >= 3) finish(); else intro.addEventListener("canplay", finish, { once:true });
   setTimeout(finish, 3200);
 })();
+
+/* línea de tiempo "Mi camino" */
+(() => { const j = document.getElementById("journey"); if (!j) return;
+  if (!("IntersectionObserver" in window)) { j.classList.add("on"); return; }
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { j.classList.add("on"); io.disconnect(); } }), { threshold: .35 });
+  io.observe(j); })();
 </script>
 </body>
 </html>
